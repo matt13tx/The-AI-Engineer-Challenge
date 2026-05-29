@@ -3,7 +3,7 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 
 /** FastAPI backend base URL (local dev). */
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000";
 
 type HealthState = "loading" | "ok" | "error";
 
@@ -85,7 +85,7 @@ export default function Home() {
 
   return (
     <main>
-      <h1>My First LLM App</h1>
+      <h1>Matthew&apos;s First LLM Application</h1>
       <p className="subtitle">
         Send a prompt to your FastAPI backend and see the coach&apos;s reply.
       </p>
