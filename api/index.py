@@ -12,15 +12,15 @@ app = FastAPI()
 # CORS so the frontend can talk to backend
 app.add_middleware(
     CORSMiddleware,
-     allow_origins=[
+    allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://frontend-ihkdmurfr-matthew-ai.vercel.app"
-        "https://frontend-57xmx8ln3-matthew-ai.vercel.app",
+        "https://frontend-matthew-ai.vercel.app",
     ],
+    allow_origin_regex=r"https://frontend-[a-z0-9-]+-matthew-ai\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
